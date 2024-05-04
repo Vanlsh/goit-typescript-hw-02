@@ -1,15 +1,15 @@
 import css from "./ImageModal.module.css";
-import PropTypes from "prop-types";
 import { IoIosClose } from "react-icons/io";
 import { AiOutlineLike } from "react-icons/ai";
 import { MdDownload } from "react-icons/md";
 import { formattingData } from "../../helpers/formattingDate.js";
 import { modalStyles } from "../../utils/modalStyles.js";
 import Modal from "react-modal";
+import { IImageModalProps } from "./ImageModal.types";
 
 Modal.setAppElement("#root");
 
-const ImageModal = ({ modalIsOpen, photo, closeModal }) => {
+const ImageModal = ({ modalIsOpen, photo, closeModal }: IImageModalProps) => {
   return (
     <Modal
       isOpen={modalIsOpen}
@@ -47,12 +47,6 @@ const ImageModal = ({ modalIsOpen, photo, closeModal }) => {
       )}
     </Modal>
   );
-};
-
-ImageModal.propTypes = {
-  photo: PropTypes.object,
-  closeModal: PropTypes.func,
-  modalIsOpen: PropTypes.bool,
 };
 
 export default ImageModal;

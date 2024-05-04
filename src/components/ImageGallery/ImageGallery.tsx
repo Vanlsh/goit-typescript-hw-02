@@ -1,17 +1,17 @@
 import { useRef, useEffect } from "react";
 import css from "./ImageGallery.module.css";
-import PropTypes from "prop-types";
-import ImageCard from "../ImageCard/ImageCard.jsx";
+import ImageCard from "../ImageCard/ImageCard.js";
 import { PHOTO_PER_PAGE } from "../../utils/constants.js";
+import { IImageGalleryProps } from "./ImageGallery.types";
 
-const ImageGallery = ({ photos, onModalOpen }) => {
-  const photosRef = useRef(null);
+const ImageGallery = ({ photos, onModalOpen }: IImageGalleryProps) => {
+  const photosRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
     if (photos.length > PHOTO_PER_PAGE) {
       const listItemRef =
-        photosRef.current.children[photos.length - PHOTO_PER_PAGE];
-      listItemRef.scrollIntoView({ behavior: "smooth", block: "start" });
+        photosRef.current?.children[photos.length - PHOTO_PER_PAGE];
+      listItemRef?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }, [photos]);
 
@@ -28,11 +28,6 @@ const ImageGallery = ({ photos, onModalOpen }) => {
       ))}
     </ul>
   );
-};
-
-ImageGallery.propTypes = {
-  photos: PropTypes.arrayOf(PropTypes.object),
-  onModalOpen: PropTypes.func,
 };
 
 export default ImageGallery;

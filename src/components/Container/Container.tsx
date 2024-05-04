@@ -1,11 +1,8 @@
-import PropTypes from "prop-types";
 import css from "./Container.module.css";
+import { IContainer } from "./Container.types";
 
-const Container = ({ children }) => {
+const Container = ({ children }: IContainer) => {
   return <div className={css.container}>{children}</div>;
-};
-Container.propTypes = {
-  children: PropTypes.node,
 };
 
 export default Container;

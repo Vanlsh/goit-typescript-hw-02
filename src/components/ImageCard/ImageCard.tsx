@@ -1,7 +1,7 @@
 import css from "./ImageCard.module.css";
-import PropTypes from "prop-types";
+import { IImageCardProps } from "./ImageCard.types";
 
-const ImageCard = ({ imgUrl, description, onModalOpen }) => {
+const ImageCard = ({ imgUrl, description, onModalOpen }: IImageCardProps) => {
   return (
     <div className={css.card}>
       <img
@@ -13,12 +13,6 @@ const ImageCard = ({ imgUrl, description, onModalOpen }) => {
       />
     </div>
   );
-};
-
-ImageCard.propTypes = {
-  imgUrl: PropTypes.string,
-  description: PropTypes.string,
-  onModalOpen: PropTypes.func,
 };
 
 export default ImageCard;

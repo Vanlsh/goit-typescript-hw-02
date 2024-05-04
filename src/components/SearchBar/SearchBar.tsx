@@ -1,13 +1,12 @@
 import Form from "../Form/Form";
 import css from "./SearchBar.module.css";
-import PropTypes from "prop-types";
 import toast, { Toaster } from "react-hot-toast";
-
+import { ISearchBarProps } from "./SearchBar.types";
 const notify = () =>
   toast("Please, enter the text", { position: "bottom-center" });
 
-const SearchBar = ({ handleSearch }) => {
-  const onSubmit = (query) => {
+const SearchBar = ({ handleSearch }: ISearchBarProps) => {
+  const onSubmit = (query: string) => {
     const newQuery = query.trim();
     if (!newQuery) {
       notify();
@@ -24,7 +23,4 @@ const SearchBar = ({ handleSearch }) => {
   );
 };
 
-SearchBar.propTypes = {
-  handleSearch: PropTypes.func,
-};
 export default SearchBar;

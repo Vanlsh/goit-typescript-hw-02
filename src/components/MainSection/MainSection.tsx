@@ -1,11 +1,8 @@
 import css from "./MainSection.module.css";
-import PropTypes from "prop-types";
+import { IMainSectionProps } from "./MainSection.types";
 
-const MainSection = ({ children }) => {
+const MainSection = ({ children }: IMainSectionProps) => {
   return <main className={css.container}>{children}</main>;
 };
 
-MainSection.propTypes = {
-  children: PropTypes.node,
-};
 export default MainSection;

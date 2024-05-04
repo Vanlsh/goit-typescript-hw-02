@@ -1,11 +1,12 @@
+import React from "react";
 import { FiSearch } from "react-icons/fi";
-import PropTypes from "prop-types";
 import css from "./Form.module.css";
+import { IFormProps } from "./Form.types";
 
-const Form = ({ handleSearch }) => {
-  const handleSubmit = (e) => {
+const Form = ({ handleSearch }: IFormProps) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const query = e.target.elements.search.value;
+    const query = new FormData(e.currentTarget).get("search") as string;
     handleSearch(query);
   };
 
@@ -25,9 +26,6 @@ const Form = ({ handleSearch }) => {
       </form>
     </>
   );
-};
-Form.propTypes = {
-  handleSearch: PropTypes.func,
 };
 
 export default Form;
